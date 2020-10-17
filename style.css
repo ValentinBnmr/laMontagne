@@ -1,0 +1,301 @@
+*,::before,::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-family: 'Roboto', sans-serif;
+}
+
+
+
+body {
+    font-family: sans-serif;
+    background-color: rgb(241, 241, 241);
+}
+
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 80px;
+    width: 100%;
+    z-index: 3;
+    background: rgb(27,27,27);
+    background: linear-gradient(0deg, rgb(22, 22, 22) 15%, rgb(27, 27, 27) 100%);
+}
+
+
+
+h1 {
+    font-weight: 300;
+    font-size: 35px;
+    font-family: 'Caveat', cursive;
+    line-height: 1.2;
+    margin-top: 20px;
+    text-transform: uppercase;
+    text-align: center;
+    animation: animMainTitle 2.5s forwards;
+}
+
+header {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    padding: 0 20px;
+    color: #fff;
+}
+
+#arrow-down {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    animation: goDown infinite alternate 1s ease-out;
+
+}
+ 
+.video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.video-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.363);
+}
+
+.video-container video {
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+
+
+.content {
+    position: relative;
+    display: block;
+    margin-top: 450px;
+    padding-left: 50px;
+    font-family: 'Roboto';
+    text-transform: uppercase;
+    z-index: 2;
+    width: 70%;
+}
+
+.content h2 {
+    margin-top: 10px;
+    font-size: 35px;
+    line-height: 1.3;
+    font-weight: 400;
+    padding-left: 25px;
+    animation: titleContentAnim 1.6s forwards;
+    
+
+}
+
+.divider-content {
+    position: absolute;
+    background-color: #fff;
+    height: calc(100% + 10px);
+    width: 3px;
+    animation:  anim 1.5s forwards ease-in;
+}
+
+
+
+article {
+    width: 85%;
+    margin: 0 auto;
+    margin-top: 270px;
+    padding: 75px;
+    padding-top: 100px;
+    /* background-color: rgb(252, 252, 252); */
+    background-color: #fff;
+    border-radius: 15px 15px 0 0;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.123);
+}
+
+.header-article {
+    position: relative;
+    height: 200px;
+    width: 100%;
+    background: url(src/img/wallpaperflare.com_wallpaper.jpg) fixed center;
+    display: flex;
+    align-items: center;
+}
+
+.header-article::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.151);
+    z-index: 1;
+
+}
+
+.article-title {
+    margin-left: 20px;
+    padding-left: 8px;
+    border-left: solid 3px #fff;
+    color: #fff;
+    font-size: 30px;
+    text-transform: uppercase;
+    z-index: 2;
+}
+
+article p {
+    margin: 50px 0;
+    font-family: 'Open Sans' sans-serif;
+    line-height: 30px;
+    padding-left: 20px;
+}
+
+.divider-article {
+    height: 3px;
+    width: 90%;
+    margin: 80px auto;
+    border-radius: 32px;
+    background-color: rgba(0, 0, 0, 0.336);
+}
+
+footer {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 300px;
+    background: rgb(27,27,27);
+    background: linear-gradient(0deg, rgb(22, 22, 22) 15%, rgb(27, 27, 27) 100%);
+
+}
+
+.credit {
+    margin-top: 40px;
+    margin-bottom: 15px;
+    font-family: 'Caveat', cursive;
+    font-size: 40px;
+    color: #fff;
+    text-align: center;
+}
+
+svg {
+    height: 40px;
+    width: 40px;
+    margin: 5px;
+}
+.divider-footer {
+    position: absolute;
+    top: 170px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: 2px;
+    background-color: #fff;
+}
+
+
+@media screen and (max-width: 1040px) {
+    .content h2 {
+        font-size: 30px;
+    }
+}
+
+@media screen and (max-width: 885px) {
+    .content {
+        margin: 300px auto;
+    }
+    .content h2 {
+        font-size: 28px;
+    }
+}
+
+/* Animations  */
+
+@keyframes goDown {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-15px);
+    }
+}
+
+@keyframes opacity {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes anim  {
+    0% {
+        width: calc(100%);
+    }
+    100% {
+        height: calc(100% + 10px);
+        width: 10px;
+    }
+}
+
+@keyframes titleContentAnim {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: (1);
+    }
+}
+
+@keyframes animMainTitle {
+    0% {
+        letter-spacing: -15px;
+        opacity: 0;
+    }
+    100% {
+        letter-spacing: 5px;
+        opacity: 1;
+    }
+}
+
+
+@keyframes aReducNavBar {
+    0% {
+        height: 80px;
+
+
+    }
+    100% {
+        height: 50px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.329);
+
+    }
+}
+
+.reducNavBar {
+   animation: aReducNavBar 1.4s forwards;
+}
