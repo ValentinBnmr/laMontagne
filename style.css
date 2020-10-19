@@ -2,6 +2,15 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    text-decoration: none;
+}
+
+
+html {
+    --primary-color: rgb(255, 255, 255);
+    --secondary-color: rgb(65, 147, 241);
+    --p-color : rgb(48, 48, 48);
+
 }
 
 h1,h2,h3,h4,h5,h6 {
@@ -11,8 +20,44 @@ h1,h2,h3,h4,h5,h6 {
 
 
 body {
-    font-family: sans-serif;
     background-color: rgb(241, 241, 241);
+}
+
+
+body::-webkit-scrollbar {
+    width: 10px;
+    transition-duration: .8s;
+}
+
+body::-webkit-scrollbar-track {
+    background-color: #e5e5e5;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color:  var(--secondary-color);
+    border-radius: 50px;
+    transition-duration:  .8s;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background-color:  rgb(122, 182, 231);
+
+}
+
+#goTop {
+    position: fixed;
+    height: 50px;
+    width: 50px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    right: 20px;
+    bottom: 20px;
+    z-index: 1;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    box-shadow:  0 0 8px rgba(0, 0, 0, 0.11);
 }
 
 
@@ -28,6 +73,9 @@ nav {
 }
 
 
+nav a {
+    color: var(--primary-color);
+}
 
 h1 {
     font-weight: 300;
@@ -47,13 +95,13 @@ header {
     flex-direction: column;
     /* align-items: center; */
     padding: 0 20px;
-    color: #fff;
+    color: var(--primary-color);
 }
 
 #arrow-down {
     position: absolute;
     bottom: 0;
-    left: 50%;
+    left: calc(50% - 15px);
     animation: goDown infinite alternate 1s ease-out;
 
 }
@@ -113,11 +161,45 @@ header {
 
 .divider-content {
     position: absolute;
-    background-color: #fff;
     height: calc(100% + 10px);
     width: 3px;
+    z-index: 1;
+    background: linear-gradient(0deg, rgb(80, 145, 219) 0%, rgba(49,131,224,1) 100%);
+    border-radius: 0 10px 10px 0;
     animation:  anim 1.5s forwards ease-in;
+    
 }
+
+@media screen and (max-width: 1040px) {
+    .content h2 {
+        font-size: 30px;
+    }
+}
+
+@media screen and (max-width: 885px) {
+    .content {
+        margin: 300px auto;
+        width: 100%;
+    }
+    .content h2 {
+        font-size: 28px;
+    }
+}
+
+
+@media screen and (max-width: 500px) {
+    .content {
+        margin: 300px auto;
+        padding: 0;
+        width: 100%;
+    }
+    .content h2 {
+        font-size: 25px;
+    }
+}
+
+
+
 
 
 
@@ -126,20 +208,53 @@ article {
     margin: 0 auto;
     margin-top: 270px;
     padding: 75px;
-    padding-top: 100px;
-    /* background-color: rgb(252, 252, 252); */
-    background-color: #fff;
+    padding-top: 200px;
+    background-color: var(--primary-color);
     border-radius: 15px 15px 0 0;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.123);
+}
+
+@media screen and (max-width: 745px){
+    #goTop {
+        height: 30px;
+        width: 30px;
+        background-color: rgba(255, 255, 255, 0.603);
+    }
+    article {
+        width: 100%;
+        padding: 0;
+    }
+    .header-article:nth-child(1), .header-article:nth-child(1)::before {
+    border-radius: 15px 15px 0 0;
+
+    }
+    .header-article h3{
+        font-size: 25px;
+    }
 }
 
 .header-article {
     position: relative;
     height: 200px;
     width: 100%;
-    background: url(src/img/wallpaperflare.com_wallpaper.jpg) fixed center;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
     display: flex;
     align-items: center;
+}
+
+.ha1 {
+    background-image: url(src/img/header-article-1.jpg);
+}
+
+.ha2 {
+    background-image: url(src/img/header-article-2.jpg);
+}
+
+.ha3 {
+    background-image: url(src/img/header-article-3.jpg);
 }
 
 .header-article::before {
@@ -157,27 +272,24 @@ article {
 .article-title {
     margin-left: 20px;
     padding-left: 8px;
-    border-left: solid 3px #fff;
-    color: #fff;
+    border-left: solid 3px var(--secondary-color) ;
+    color: var(--primary-color);
     font-size: 30px;
     text-transform: uppercase;
     z-index: 2;
 }
 
 article p {
-    margin: 50px 0;
-    font-family: 'Open Sans' sans-serif;
+    margin-top: 40px;
+    font-family: sans-serif;
     line-height: 30px;
+    padding-top: 50px;
+    padding-bottom: 300px;
     padding-left: 20px;
+    padding-right: 5px;
+    color: var(--p-color);
 }
 
-.divider-article {
-    height: 3px;
-    width: 90%;
-    margin: 80px auto;
-    border-radius: 32px;
-    background-color: rgba(0, 0, 0, 0.336);
-}
 
 footer {
     position: relative;
@@ -195,40 +307,58 @@ footer {
     margin-bottom: 15px;
     font-family: 'Caveat', cursive;
     font-size: 40px;
-    color: #fff;
+    color: var(--primary-color);
     text-align: center;
 }
 
-svg {
+.credit span {
+    transition-duration: .4s;
+
+}
+
+.credit:hover span {
+    color: var(--secondary-color);
+}
+
+footer svg {
+    position: relative;
     height: 40px;
     width: 40px;
     margin: 5px;
+    transition: 1s;
 }
+
+.cls-1 {
+    transition-duration: .4s;
+}
+
+footer svg:hover .cls-1 {
+    fill: var(--secondary-color);
+}
+
+
+
 .divider-footer {
     position: absolute;
-    top: 170px;
-    left: 50%;
-    transform: translate(-50%, -50%);
     width: 50%;
     height: 2px;
-    background-color: #fff;
+    top: 190px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--primary-color);
+    border-radius: 15px;
 }
 
-
-@media screen and (max-width: 1040px) {
-    .content h2 {
+@media screen and (max-width: 380px){
+    .credit {
         font-size: 30px;
     }
+    footer svg {
+        height: 30px;
+        width: 30px;
+    }
 }
 
-@media screen and (max-width: 885px) {
-    .content {
-        margin: 300px auto;
-    }
-    .content h2 {
-        font-size: 28px;
-    }
-}
 
 /* Animations  */
 
@@ -253,10 +383,14 @@ svg {
 @keyframes anim  {
     0% {
         width: calc(100%);
+        opacity: 1;
     }
     100% {
         height: calc(100% + 10px);
         width: 10px;
+        border-radius: 0  10px 0;
+        
+
     }
 }
 
@@ -293,6 +427,15 @@ svg {
         height: 50px;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.329);
 
+    }
+}
+
+@keyframes aHeightArticle {
+    0% {
+        height: 0;
+    }
+    100% {
+        height: 100%;
     }
 }
 
